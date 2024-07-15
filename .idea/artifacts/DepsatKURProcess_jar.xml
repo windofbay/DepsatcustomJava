@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="DepsatKURProcess:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/DepsatKURProcess_jar</output-path>
+    <root id="archive" name="DepsatKURProcess.jar">
+      <element id="module-output" name="DepsatKURProcess" />
+    </root>
+  </artifact>
+</component>
