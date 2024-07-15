@@ -18,14 +18,6 @@ import java.util.Locale;
 public class DepSatKURProcessHandler implements IFormServerEventHandler {
     @Override
     public void beforeFormLoad(FormDef objFormDef, IFormReference objReference) {
-
-        if (objReference.getActivityName().equals("First Entry")){
-            List<String> branchName = objReference.getDataFromDB(
-                    "SELECT brnc.name FROM mst_user AS usr JOIN mst_branch AS brnc ON brnc.id = usr.branch_id WHERE usr.username='"+objReference.getUserName()+"'"
-            );
-
-            objReference.setValue("DepSatTrxLeadsApplicant.branchname", branchName.get(0));
-        }
     }
 
     @Override
@@ -45,14 +37,15 @@ public class DepSatKURProcessHandler implements IFormServerEventHandler {
             if(controlId.equals("")){
                 return "control Id shouldn't be empty";
             }
+            
             try {
                 List<ArrayList<String >> branchName = objReference.getDataFromDB(
                         "SELECT brnc.name FROM mst_user AS usr JOIN mst_branch AS brnc ON brnc.id = usr.branch_id WHERE usr.username='"+controlId+"'"
                 );
                 //objReference.setValue("DepSatTrxLeadsApplicant.branchname", branchName.get(0).get(0));
-                return branchName.get(0).get(0);
+                return branchName;
             } catch (Exception err){
-                return "error : "+err;
+                return "error : " + err;
             }
 
         } else {
