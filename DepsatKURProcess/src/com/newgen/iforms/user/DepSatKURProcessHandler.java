@@ -37,7 +37,6 @@ public class DepSatKURProcessHandler implements IFormServerEventHandler {
             if(controlId.equals("")){
                 return "control Id shouldn't be empty";
             }
-            
             try {
                 List<ArrayList<String >> branchName = objReference.getDataFromDB(
                         "SELECT brnc.name FROM mst_user AS usr JOIN mst_branch AS brnc ON brnc.id = usr.branch_id WHERE usr.username='"+controlId+"'"
